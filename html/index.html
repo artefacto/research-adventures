@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Raconteur Game Scaffold html -->
+  <meta charset="utf-8">
+
+  <!-- EDIT: Game title -->
+  <title>Research adventures</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript" src="game/undum.js"></script>
+  <script type="text/javascript" src="game/bundle.js"></script>
+</head>
+<body>
+    <!-- This isn't needed and isn't visible in desktop versions,
+         because we can display the character information and the
+         tools onscreen all the time. -->
+    <div id="toolbar">
+      <!-- Set this to be a small version of the title, for the
+           toolbar on mobile devices. -->
+      <!-- EDIT: Game title -->
+      <h1>Research adventure #1</h1>
+      <div class="nav">
+        <a href="#" class="button" id="menu-button">Menu</a>
+      </div>
+    </div>
+    <ul id="menu">
+      <li><a href="#title, #content_wrapper">Story</a></li>
+      <li><a href="#character_panel">Character</a></li>
+      <li><a href="#info_panel">Info</a></li>
+    </ul>
+
+    <div id="page">
+
+      <div id="tools_wrapper">
+        <div id="info_panel" class="tools left">
+
+          <!-- EDIT: Game background -->
+          <h1>The Research Adventure Series</h1>
+          <p>
+            Welcome to the Research adventures. Research adventures are tutorials for improving \
+            your information skills.
+
+          </p>
+          <p>
+            These were created using Undum, which is a tool for writing
+            hypertext interactive fiction. You can read more and download the source
+            code <a href="http://github.com/artefactory">here</a>.
+          </p>
+          <!-- End of Game Background -->
+
+          <div class='buttons'>
+            <button id="save">Save</button><button id="erase">Erase</button>
+          </div>
+        </div>
+
+        <div id="character_panel" class="tools right">
+          <h1>Character</h1>
+          <div id="character">
+            <div id="character_text">
+              <div id="character_text_content"></div>
+            </div>
+            <div id="qualities"></div>
+          </div>
+        </div>
+      </div> <!-- End of div.tools_wrapper -->
+
+      <div id="mid_panel">
+        <div id="title">
+          <div class="label">
+
+            <!-- EDIT: Game Title -->
+            <h1>Research Adventure Series</h1>
+            <noscript>
+              <p class="noscript_message">This game requires Javascript.</p>
+            </noscript>
+            <p class="click_message">click to begin</p>
+          </div>
+        </div>
+
+        <div id="content_wrapper">
+          <div id="content">
+          </div>
+          <a name="end_of_content"></a>
+        </div>
+
+        <div id="legal">
+          <!-- EDIT: Your Copyright -->
+          <p>Research adventures is &copy; 2015 Artefacto.</p>
+
+          <!-- This line is totally optional. -->
+          <p>Created with <a href="http://undum.com">Undum</a> and
+          <a href="http://sequitur.github.io/raconteur/">Raconteur</a>.</p>
+
+        </div>
+      </div>
+    </div> <!-- End of div.page -->
+
+    <!-- Holds UI elements that will be cloned and placed in the main
+         page. This block itself is always hidden. -->
+    <div id="ui_library">
+      <div id="quality" class="quality">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+      </div>
+
+      <div id="quality_group" class="quality_group">
+        <h2 data-attr="title"></h2>
+        <div class="qualities_in_group">
+        </div>
+      </div>
+
+      <div id="progress_bar" class="progress_bar">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+        <div class="progress_bar_track">
+          <div class="progress_bar_color" data-attr="width">
+          </div>
+        </div>
+        <span class="left_label" data-attr="left_label"></span>
+        <span class="right_label" data-attr="right_label"></span>
+      </div>
+
+      <hr id="turn_separator">
+    </div>
+
+    <div id="content_library">
+      <!-- This div holds situations loaded directly from HTML -->
+    </div>
+
+</body>
+</html>
