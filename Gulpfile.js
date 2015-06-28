@@ -49,6 +49,12 @@ gulp.task('less', function () {
       .pipe(gulp.dest('./build/css'));
 });
 
+gulp.task('less', function () {
+  gulp.src('less/research-adventure.less')
+      .pipe(less())
+      .pipe(gulp.dest('./build/css'));
+});
+
 /* Bundle libraries */
 
 var undumBundler = browserify({debug: true});

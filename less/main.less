@@ -26,7 +26,7 @@ html { font-size: 14pt; } // Everything is relative to this
 @header-size: 2.5rem;
 @title-size: 3rem;
 
-// Colours
+//Colour scheme
 
 @text-colour: rgba(0, 0, 0, 0.87);
 @anchor-colour: #D29506;
@@ -38,8 +38,8 @@ html { font-size: 14pt; } // Everything is relative to this
 // Backgrounds
 
 @text-bg: #fafafa;
-@title-bg: #eee; // Orange
-@body-bg: #fff; // Blue grey
+@title-bg: #E9E4DA;
+@body-bg: #fff; //
 
 // Mixins
 
@@ -303,10 +303,11 @@ a:hover {
 }
 
 img {
-    .material_shadow();
-    float: right;
-    margin: 1.1em 0 1.1em 1.1em;
+    margin: 0 auto;
+max-width: 100%;
+float: none;
 }
+
 img.float_left {
     float: left;
     margin: 1.1em 1.1em 1.1em 0;
