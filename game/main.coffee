@@ -55,12 +55,13 @@ situation 'start',
   """
 situation 'research_challenge',
   content: """
+  <h2>Your challenge</h2>
     Your challenge, if you choose to accept it is research:
 
     > _How many Eskimo words are there for snow?_
 
 
-  Again, a deceptively simple question that will touch on the ways language reflects cultural, values and our perception.
+  ...A deceptively simple question that will touch on the ways language reflects cultural, values and our perception.
 
   It's often said that Eskimos have 99 words for snow (the number quoted changed but we’ll get to that). But what does this even mean?
 
@@ -115,7 +116,9 @@ situation 'complete_search_strategy',
 
 situation 'commence_search_mission',
   content: """
+  <h3>Starting your search</h3>
     Where to start? There are two passages, you can head to the library website or turn the other direction and start with an internet search.
+
   """
   optionText: 'Research is go'
   choices: ['to_the_library', 'to_the_google']
@@ -124,7 +127,6 @@ situation 'to_the_library',
   content: (character) ->
     """
     <h3>At the library</h3>
-  
     You head off to the main catalogue page. As always, you need to decide on the search terms you will use.
 
     The initial online research has helped shed some light on the topic so now you’re interested in following up on this with academic sources. We know that both the issue of what languages are spoken by different ‘Eskimo’ communities will have an impact on our research as is the concept of how we dinstinguish between concepts, words and ‘lexemes’.
@@ -142,6 +144,10 @@ situation 'further_in_the_library',
   content: """
   The library has a range of different resources, from the dead tree varieties to online databases that bring together a huge amount of different academic publications online.
 
+  So far our information has been from linguistic and anthropological sources so this is what we can focus on with the databases.
+
+  You're getting increasingly suspicious that the answer is not going to be just a number.
+
   """
   optionText: 'Head deeper into the library'
 
@@ -149,16 +155,12 @@ situation 'to_the_google',
   after: (character, system) ->
     system.setQuality('googleFu', character.qualities.googleFu + 10);
   content: """
-
-  <h2>A simple Google search</h2>
   You put the cursor in the search box and type "eskimo words for snow".
 
   According to Google, you received About 411,000 results (0.33 seconds). And as is often the case, the first search result is from Wikipedia.
   """
   optionText: 'To the Google'
   choices: ['search_results_in_detail', 'i_feel_lucky']
-  canView: (character) -> character.qualities.googleFu;
-
 
 situation 'search_results_in_detail',
   after: (character, system) ->
@@ -175,39 +177,60 @@ situation 'search_results_in_detail',
 
  Time to follow up on some of these journal sources now that we've got a bit of Google fu to our name.
  """
-  optionText: 'Google search results'
+  optionText: 'Dive deeper into the Google search results'
   choices: ['to_the_library', 'google_scholar']
+  # can't see the option unless you have some Google Fu
+  # canView: (character) -> character.qualities.googleFu; > 10
 
 
   wikipediaMisuse = oneOf("keeps getting into edit wars with bronies", "keeps getting into edit wars about the correct pronunciation of JK Rowling's surname", "keeps getting into edit wars about Edina's racist past", "keeps adding new names to the list of So Solid Crew members", "keeps trying to singlehandedly restore Pluto's status as a planet").trulyAtRandom()
 
-situation "i_feel_lucky",
-  content: () ->
+situation 'i_feel_lucky',
+content: () ->
   """
+  <h3>Wikipedia feels lucky</h3>
   You click on the first result and it takes you to the wikipedia page called (funnily enough) "Eskimo words for snow".
 
   Right from the very first paragraph, you find out that this is generally attributed to someone called Franz Boas and that "Eskimo–Aleut languages" (whatever they are) don’t have many more words for snow than English does.
 
   It goes on and on about the history of this claim and the different attempts to debunk it. And something about Edward Sapir's and Benjamin Whorf's hypothesis of linguistic relativity. Which is all very interesting but, c’mon, this is wikipedia. Can you really believe what you read in Wikipedia? Not when you’re cousin’s best friend’s sister #{wikipediaMisuse}.
 
-What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
+  What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
 
-And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
+  And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
 
-So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
-    """
-  optionText: 'Wikipedia feels lucky'
+  So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
+  """
+    # optionText: "Wikipedia feels lucky"
 
 situation 'google_scholar',
   after: (character, system) ->
     system.setQuality('googleFu', character.qualities.googleFu + 100);
   content: () ->
     """
-      You put the cursor in the search box and type eskimo words for snow.
+    <h3>About Google Scholar</h3>
+      Google scholar is a bit of a hidden treasure that let's you search scholarly literature. What Google deems to be scholarly can vary a bit but generally it includes journal articles, citations, patents and other academic materias. Some of these are freely available but may will just return the citation.
 
-      According to Google, you received About 411,0o000 results (0.33 seconds). And as often happens, the first search result is from Wikipedia.
+      That is unless your a member of a library that uses a Link Resolver, a little bit of interweb magic that means that you can access your library's database resources via the Google Scholar interface. In full text!
+
+      Anyway, enough of the background of Google Scholar, time to search.
+
+      You type in Inuit language and snow and hit enter.
     """
-  optionText: 'Goolge Scholar'
+  optionText: 'Google Scholar'
+  choices: ['google_scholar_results', 'to_the_library']
+
+  situation 'google_scholar_results',
+    content: """
+    Amazing, the very first result in Google Scholar is:
+      _Eskimo Words for Snow": A Case Study in the Genesis and Decay of an Anthropological Example_
+      There's also an article further down the page that looks useful.
+      _Inuit snow terms: How many and what does it mean_
+      Sounds perfect _and_ it's available in PDF. Full text for the win. You download the article and get to reading, getting one step closer to finding out how many words for snow there are.
+
+    """
+    optionText: 'Google Scholar Results!'
+
 
 # ----------------------------------------------------------------------------
 # Qualities
