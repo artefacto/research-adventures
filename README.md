@@ -1,6 +1,6 @@
 # Research Adventures prototype
 
-A demo version of the Reeearch Adventures series of information and digital literacy training resources.
+A demo version of the Research Adventures series of information and digital literacy training resources.
 
 This was created using [Raconteur and the handy scaffolding tool developed by Bruno Dias](https://github.com/sequitur/raconteur).
 
