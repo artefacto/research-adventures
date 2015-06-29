@@ -32,4 +32,4 @@ This scaffold comes prepped for usage with Gulp as a build system, Less for CSS 
 
 Most of the code in this scaffold, Undum, and Raconteur are distributed under the MIT license, which allows you to redistribute or modify the code, even for commercial use, as long as you always package it along with a notice acknowledging the original copyright holders and this license. See LICENSE for legalese.
 
-The example image included with this scaffold (storyteller.jpg) is from the Swiss National Library, GS-GUGE-FREUDENBERGER-C-8, and is in the public domain and the images included in the demo research adventure are [](c) Varvara Gorbash](https://creativemarket.com/varka/130130-Vintage-Adventures.-Vector-Set).
+The example image included with this scaffold (storyteller.jpg) is from the Swiss National Library, GS-GUGE-FREUDENBERGER-C-8, and is in the public domain and the images included in the demo research adventure are from the [Vintage Adventures set by Varvara Gorbash](https://creativemarket.com/varka/130130-Vintage-Adventures.-Vector-Set).
