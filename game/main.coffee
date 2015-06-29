@@ -20,6 +20,8 @@ a = elements.a
 span = elements.span
 img = elements.img
 
+wikipediaMisuse = oneOf("keeps getting into edit wars with bronies", "keeps getting into edit wars about the correct pronunciation of JK Rowling's surname", "keeps getting into edit wars about Edina's racist past", "keeps adding new names to the list of So Solid Crew members", "keeps trying to singlehandedly restore Pluto's status as a planet").trulyAtRandom()
+
 # ----------------------------------------------------------------------------
 # IFID and game version - Edit this
 
@@ -55,7 +57,7 @@ situation 'start',
   """
 situation 'research_challenge',
   content: """
-  <h2>Your challenge</h2>
+  ##Your challenge
     Your challenge, if you choose to accept it is research:
 
     > _How many Eskimo words are there for snow?_
@@ -66,7 +68,7 @@ situation 'research_challenge',
   It's often said that Eskimos have 99 words for snow (the number quoted changed but we’ll get to that). But what does this even mean?
 
 
-In this adventure, we’ll explore a bit of linguistics, cultural studies, anthropology and maybe even a bit about memes.
+This topics has a bit of everything, it touches on linguistics, cultural studies, anthropology and maybe even a bit about memes.
 
 
 If you’re ready to get started, then [let’s go](first_steps).
@@ -91,11 +93,11 @@ What we need here is a search strategy. [It's time to make a plan](write_search_
     ### A strategy called search
       So, what do we need to include in a search stategy? We need to be clear what we're trying to answer and what the keywords are for starters.
 
-      One of the things they tell you about navigating a maze is to always keep your hand on the wall. Eventually this will lead you to the way out. And this is a handy way to think about search strategies. Have a strategy will keep you on a path to finding the answer to the question you are researching.
+      One of the things they tell you about navigating a maze is to always keep your hand on the wall. Eventually this will lead you to the way out. And this is a handy way to think about search strategies. Have a strategy will keep you on a path to finding the answer to your research question.
 
-      ![thinking music](img/thinking1.gif)
+      ![thinking music](img/thinking1.gif) (just pretend this is thinking music)
 
-      Take a second to think about what you'll include. What are other possible terms that could be used, alternative ways of looking at this, things that we don't want to include.  [before we create our strategy](complete_search_strategy)
+      Take a second to think about what you'll include. What are other possible terms that could be used, alternative ways of looking at this, things that we don't want to include?  [before we create our strategy](complete_search_strategy)
 
 
 
@@ -142,11 +144,13 @@ situation 'to_the_library',
 
 situation 'further_in_the_library',
   content: """
-  The library has a range of different resources, from the dead tree varieties to online databases that bring together a huge amount of different academic publications online.
+  The library has a range of different resources, from the dead tree variety to online databases that bring together a huge amount of different academic publications and make them available online.
 
   So far our information has been from linguistic and anthropological sources so this is what we can focus on with the databases.
 
   You're getting increasingly suspicious that the answer is not going to be just a number.
+
+  ...tbc (sorry)
 
   """
   optionText: 'Head deeper into the library'
@@ -157,10 +161,10 @@ situation 'to_the_google',
   content: """
   You put the cursor in the search box and type "eskimo words for snow".
 
-  According to Google, you received About 411,000 results (0.33 seconds). And as is often the case, the first search result is from Wikipedia.
+  According to Google, you received About 411,000 results (0.33 seconds). And as is often the case, the first search result is from <a href="i_feel_lucky">Wikipedia</a>.
   """
   optionText: 'To the Google'
-  choices: ['search_results_in_detail', 'i_feel_lucky']
+  choices: ['search_results_in_detail','i_feel_lucky']
 
 situation 'search_results_in_detail',
   after: (character, system) ->
@@ -182,24 +186,24 @@ situation 'search_results_in_detail',
   # can't see the option unless you have some Google Fu
   # canView: (character) -> character.qualities.googleFu; > 10
 
-
-  wikipediaMisuse = oneOf("keeps getting into edit wars with bronies", "keeps getting into edit wars about the correct pronunciation of JK Rowling's surname", "keeps getting into edit wars about Edina's racist past", "keeps adding new names to the list of So Solid Crew members", "keeps trying to singlehandedly restore Pluto's status as a planet").trulyAtRandom()
-
 situation 'i_feel_lucky',
-content: () ->
+content: (character) ->
   """
-  <h3>Wikipedia feels lucky</h3>
-  You click on the first result and it takes you to the wikipedia page called (funnily enough) "Eskimo words for snow".
+### Wikipedia feels lucky
+You click on the first result and it takes you to the wikipedia page called (funnily enough) "Eskimo words for snow".
 
-  Right from the very first paragraph, you find out that this is generally attributed to someone called Franz Boas and that "Eskimo–Aleut languages" (whatever they are) don’t have many more words for snow than English does.
+Right from the very first paragraph, you find out that this is generally attributed to someone called Franz Boas and that "Eskimo–Aleut languages" (whatever they are) don’t have many more words for snow than English does.
 
-  It goes on and on about the history of this claim and the different attempts to debunk it. And something about Edward Sapir's and Benjamin Whorf's hypothesis of linguistic relativity. Which is all very interesting but, c’mon, this is wikipedia. Can you really believe what you read in Wikipedia? Not when you’re cousin’s best friend’s sister #{wikipediaMisuse}.
+It goes on and on about the history of this claim and the different attempts to debunk it. And something about Edward Sapir's and Benjamin Whorf's hypothesis of linguistic relativity. Which is all very interesting but, c’mon, this is wikipedia. Can you really believe what you read in Wikipedia? Not when you’re cousin’s best friend’s sister #{wikipediaMisuse}.
 
-  What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
+What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
 
-  And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
+And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
 
-  So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
+So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
+
+_tbc ... (sorry, but this is a demo after all)_
+
   """
     # optionText: "Wikipedia feels lucky"
 
