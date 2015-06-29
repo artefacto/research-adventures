@@ -17,13 +17,11 @@ Research Adventure no.1 is an interactive-fiction style, text-based adventure th
 - Add learning outcomes
 - Create base adventure template
 - Add short demo version
-- [CoffeeScript]
-- [Less]
-- Numerous Gulp-related and Node packages; see the package.json file
+- Lots of other things
 
 ## File Structure
 
-There's lots of scaffold structure here for development, the game compiles into the game directory (handily).  For development, check out the [Raconteur](http://github.com/sequitur/raconteur/) repository.
+There's lots of scaffold structure here for development, the game compiles into the build/game directory (handily).  For development, check out the [Raconteur](http://github.com/sequitur/raconteur/) repository.
 
 ## Usage
 
