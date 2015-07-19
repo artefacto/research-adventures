@@ -57,7 +57,7 @@ situation 'start',
   """
 situation 'research_challenge',
   content: """
-  ##Your challenge
+  ## Your challenge
     Your challenge, if you choose to accept it is research:
 
     > _How many Eskimo words are there for snow?_
@@ -91,7 +91,7 @@ What we need here is a search strategy. [It's time to make a plan](write_search_
     content: """
 
     ### A strategy called search
-      So, what do we need to include in a search stategy? We need to be clear what we're trying to answer and what the keywords are for starters.
+      So, what do we need to include in a search stategy? We need to be clear on what are topic is and what the _keywords_ are for starters. Ask yourself if there are other words or phrases that might also be relevant to the information you seek.
 
       One of the things they tell you about navigating a maze is to always keep your hand on the wall. Eventually this will lead you to the way out. And this is a handy way to think about search strategies. Have a strategy will keep you on a path to finding the answer to your research question.
 
@@ -110,7 +110,8 @@ situation 'complete_search_strategy',
       # after: (character) ->
       #    system.setQuality('hasStrategy', character.qualities.hasStrategy + 1);
   content: """
-    You are now equiped with a search strategy which means you're ready to get researching.
+  ## Search strategy collected
+    You are now equiped with a search strategy and are clear on what your searching for, what keywords you will use and what some possible synonyms and alterative phrasings are to get this information.  Basically, you're ready to get researching.
   """
   choices: ['commence_search_mission']
   optionText: 'Collect your strategy and put it in backpack',
@@ -175,7 +176,7 @@ situation 'search_results_in_detail',
 
   You scan over the other entries on the first page of Google search results (and even glance at the second page if you’re feeling brave).
 
-  One of the top results is titled 'Counting Eskimo words for snow - Princeton University’ which sounds promising and suitably academic so you click on that to take a look.
+  One of the top results is titled _Counting Eskimo words for snow - Princeton University_ which sounds promising and suitably academic so you click on that to take a look.
 
  This article lists lexemes referring to snow in the Yup'ik Eskimo language. The distinction between words and lexemes is interesting. You can already start to see how you not only need to define ‘Eskimo language’ but also what constitutes a word. This is getting complicated.
 
@@ -196,15 +197,9 @@ Right from the very first paragraph, you find out that this is generally attribu
 
 It goes on and on about the history of this claim and the different attempts to debunk it. And something about Edward Sapir's and Benjamin Whorf's hypothesis of linguistic relativity. Which is all very interesting but, c’mon, this is wikipedia. Can you really believe what you read in Wikipedia? Not when you’re cousin’s best friend’s sister #{wikipediaMisuse}.
 
-What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
 
-And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
-
-So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
-
-_tbc ... (sorry, but this is a demo after all)_
-
-  """
+"""
+ choices: ['authority']
     # optionText: "Wikipedia feels lucky"
 
 situation 'google_scholar',
@@ -234,6 +229,28 @@ situation 'google_scholar',
 
     """
     optionText: 'Google Scholar Results!'
+
+    situation 'authority',
+      content: """
+      ## A little thing called authority
+
+      What we are asking about here is ‘authority’. To know whether the information we’ve found is reliable and true, we need to know something about the credibility of the source. Who wrote it? What biases might they have? What is their expertise?
+
+      And the thing about Wikipedia is that the authority of its entries can vary so it’s important to verify the information you get from here. But that’s really true of any information source. The important thing is to make sure you know where the information comes from and wikipedia’s citations are an important source for this.
+
+      So, we next look a bit closer at the wikipedia entry for ‘Eskimo words for snow’.
+
+      """
+      optionText: 'Authority?'
+      choices: ['more_wikipedia']
+
+    situation 'more_wikipedia',
+      content: """
+      ## New topic
+
+
+      """
+      optionText: 'Back to Wikipedia with an authoritative vengence'
 
 
 # ----------------------------------------------------------------------------
